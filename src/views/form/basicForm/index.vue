@@ -80,24 +80,12 @@
           <span> %</span>
         </a-form-item>
         <a-form-item
-          :label="$t('form.basic-form.public.label')"
+          label="sdsadsdsa"
           :labelCol="{lg: {span: 7}, sm: {span: 7}}"
           :wrapperCol="{lg: {span: 10}, sm: {span: 17} }"
-          :required="false"
-          :help="$t('form.basic-form.label.help')"
+
         >
-          <a-radio-group v-decorator="['target', { initialValue: 1 }]">
-            <a-radio :value="1">{{ $t('form.basic-form.radio.public') }}</a-radio>
-            <a-radio :value="2">{{ $t('form.basic-form.radio.partially-public') }}</a-radio>
-            <a-radio :value="3">{{ $t('form.basic-form.radio.private') }}</a-radio>
-          </a-radio-group>
-          <a-form-item v-show="form.getFieldValue('target') === 2">
-            <a-select mode="multiple">
-              <a-select-option value="4">{{ $t('form.basic-form.option.A') }}</a-select-option>
-              <a-select-option value="5">{{ $t('form.basic-form.option.B') }}</a-select-option>
-              <a-select-option value="6">{{ $t('form.basic-form.option.C') }}</a-select-option>
-            </a-select>
-          </a-form-item>
+          <Editor/>
         </a-form-item>
         <a-form-item
           :wrapperCol="{ span: 24 }"
@@ -108,12 +96,16 @@
         </a-form-item>
       </a-form>
     </a-card>
+
   </page-header-wrapper>
 </template>
 
 <script>
+
+import Editor from '@/components/Editor/tinymce/Tinymce'
 export default {
   name: 'BaseForm',
+  components: { Editor },
   data () {
     return {
       form: this.$form.createForm(this)

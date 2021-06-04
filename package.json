@@ -3,7 +3,7 @@
   "version": "3.0.2",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --host=demo.com --port=8000",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
@@ -13,6 +13,8 @@
   "dependencies": {
     "@ant-design-vue/pro-layout": "^1.0.8",
     "@antv/data-set": "^0.10.2",
+    "@tinymce/tinymce-vue": "^3",
+    "ali-oss": "^6.15.2",
     "ant-design-vue": "^1.7.5",
     "axios": "^0.19.0",
     "core-js": "^3.1.2",
