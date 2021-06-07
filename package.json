@@ -3,7 +3,7 @@
   "version": "3.0.2",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --host=demo.com --port=8000",
+    "serve": "vue-cli-service serve ",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",

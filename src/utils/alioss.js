@@ -5,24 +5,18 @@ export class MyOSS {
     constructor (region, accessKeyId, accessKeySecret, stsToken, bucket, dir) {
       console.log(region)
        this.ossClient = new OSS({
-            region: 'cn-shanghai',
+            region: 'oss-cn-shanghai',
             accessKeyId: accessKeyId,
             accessKeySecret: accessKeySecret,
             stsToken: stsToken,
-            bucket: bucket
+            bucket: bucket,
+            secure: true
           })
           this.dir = dir
     }
 
-    async upload (filename, file) {
-        try {
-            // use 'chunked encoding'
-          console.log(this.dir)
-            const result = await this.ossClient.put(this.buildName(filename), file)
-            console.log(result)
-            } catch (e) {
-              console.log(e)
-            }
+     upload (filename, file) {
+        return this.ossClient.put(this.buildName(filename), file)
     }
      buildName (filename) {
         var fileExtension = filename.substring(filename.lastIndexOf('.'))

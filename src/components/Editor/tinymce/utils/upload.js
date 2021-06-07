@@ -7,7 +7,7 @@ export const upload = (blobInfo, success, failure, progress) => {
     const data = res.data
     console.log(data.roleArn)
         const oss = new MyOSS(data.roleArn, data.credentials.AccessKeyId, data.credentials.AccessKeySecret, data.credentials.SecurityToken, data.bucketName, data.dir)
-        oss.upload(blobInfo.filename(), blobInfo.blob())
+        oss.upload('1.jpg', blobInfo.blob())
     }).catch(err => {
         console.log(err)
     })
