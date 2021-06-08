@@ -82,6 +82,9 @@ const vueConfig = {
         return args
       })
     }
+    config.plugin('provide').use(webpack.ProvidePlugin, [{
+      'window.Quill': 'quill'
+    }])
   },
 
   css: {

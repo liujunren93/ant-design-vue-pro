@@ -5,9 +5,13 @@ export const upload = (blobInfo, success, failure, progress) => {
 
     getCredentials().then(res => {
     const data = res.data
-    console.log(data.roleArn)
-        const oss = new MyOSS(data.roleArn, data.credentials.AccessKeyId, data.credentials.AccessKeySecret, data.credentials.SecurityToken, data.bucketName, data.dir)
-        oss.upload('1.jpg', blobInfo.blob())
+    console.log(blobInfo.filename)
+        const oss = new MyOSS(data.region, data.credentials.AccessKeyId, data.credentials.AccessKeySecret, data.credentials.SecurityToken, data.bucketName, data.dir)
+        oss.upload(blobInfo.filename(), blobInfo.blob()).then(res => {
+            if (res.res.status === 200) {
+                    success(res.url)
+            }
+        })
     }).catch(err => {
         console.log(err)
     })

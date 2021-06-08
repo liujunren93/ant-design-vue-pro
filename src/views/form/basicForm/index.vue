@@ -85,7 +85,11 @@
           :wrapperCol="{lg: {span: 10}, sm: {span: 17} }"
 
         >
-          <Editor/>
+          <Editor
+            v-decorator="[
+              'text',
+              {rules: [{ required: true, message: $t('form.basic-form.client.required') }]}
+            ]" />
         </a-form-item>
         <a-form-item
           :wrapperCol="{ span: 24 }"
@@ -116,7 +120,8 @@ export default {
     handleSubmit (e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
-        if (!err) {
+        console.log(values)
+        if (err) {
           console.log('Received values of form: ', values)
         }
       })

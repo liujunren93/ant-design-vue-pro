@@ -5,7 +5,7 @@ export class MyOSS {
     constructor (region, accessKeyId, accessKeySecret, stsToken, bucket, dir) {
       console.log(region)
        this.ossClient = new OSS({
-            region: 'oss-cn-shanghai',
+            region: region,
             accessKeyId: accessKeyId,
             accessKeySecret: accessKeySecret,
             stsToken: stsToken,
