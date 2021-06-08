@@ -5,20 +5,22 @@
       api-key="xwp1jxf1m54e2pl8gxp9s1d4zdjxw0xs6dw21853us0ahbe4"
       :init="editorConf"
       :value="value"
+      v-model="contentHtml"
     />
   </div>
 </template>
 
  <script>
- import Editor from '@tinymce/tinymce-vue'
+import Editor from '@tinymce/tinymce-vue'
 import { upload } from './utils/upload'
- export default {
+export default {
    name: 'Editor',
    components: {
      'editor': Editor
    },
    data () {
        return {
+         contentHtml: '',
            editorConf: {
                 height: 500,
                  selector: 'textarea',
@@ -41,11 +43,13 @@ import { upload } from './utils/upload'
        }
    },
    props: {
-    value: { type: String, default: '11' }
+    value: { type: String, default: '' }
    },
-   method: {
-
+   watch: {
+     contentHtml (val) {
+       console.log(val)
+        this.$emit('change', val)
+     }
    }
-
  }
  </script>

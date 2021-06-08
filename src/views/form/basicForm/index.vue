@@ -88,7 +88,7 @@
           <Editor
             v-decorator="[
               'text',
-              {rules: [{ required: true, message: $t('form.basic-form.client.required') }]}
+              {rules: [{ required: true, message: $t('form.basic-form.client.required') }],initialValue:'111111'}
             ]" />
         </a-form-item>
         <a-form-item
