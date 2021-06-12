@@ -86,6 +86,7 @@
 
         >
           <Editor
+            placeholder="afdsa"
             v-decorator="[
               'text',
               {rules: [{ required: true, message: $t('form.basic-form.client.required') }],initialValue:'111111'}

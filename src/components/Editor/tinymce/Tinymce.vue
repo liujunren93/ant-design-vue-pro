@@ -6,6 +6,7 @@
       :init="editorConf"
       :value="value"
       v-model="contentHtml"
+      :placeholder="placeholder"
     />
   </div>
 </template>
@@ -43,7 +44,8 @@ export default {
        }
    },
    props: {
-    value: { type: String, default: '' }
+    value: { type: String, default: '' },
+    placeholder: { type: String, default: '' }
    },
    watch: {
      contentHtml (val) {
